@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="XMLSchema1"
+    elementFormDefault="qualified"
+    xmlns:mstns="http://tempuri.org/XMLSchema1.xsd"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <xs:element name="schedule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="day" minOccurs="0" maxOccurs="5">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="subject" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="name" type="xs:string"/>
+                    <xs:element name="class">
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:enumeration value="506[3]"/>
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="teacher" type="xs:string"/>
+                    <xs:element name="timeFrame">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="start" type="xs:time"/>
+                          <xs:element name="end" type="xs:time"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="type" use="required">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="семинар"/>
+                        <xs:enumeration value="лекция"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                  <xs:attribute name="number" type="xs:integer" use="required"/>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="weekday" use="required">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="Понедельник"/>
+                  <xs:enumeration value="Вторник"/>
+                  <xs:enumeration value="Среда"/>
+                  <xs:enumeration value="Четверг"/>
+                  <xs:enumeration value="Пятница"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

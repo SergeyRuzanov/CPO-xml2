@@ -1,0 +1,11 @@
+<!ELEMENT schedule (day*)>
+<!ELEMENT day (subject+)>
+<!ATTLIST day weekday (Понедельник|Вторник|Среда|Четверг|Пятница) #REQUIRED>
+<!ELEMENT subject (name, class, teacher, timeFrame)>
+<!ATTLIST subject type (семинар|лекция) #REQUIRED>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT class (#PCDATA)>
+<!ELEMENT teacher (#PCDATA)>
+<!ELEMENT timeFrame (start, end)>
+<!ELEMENT start (#PCDATA)>
+<!ELEMENT end (#PCDATA)>
